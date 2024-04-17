@@ -1,0 +1,12 @@
+services:
+  eclipse-temurin:
+    image: library/eclipse-temurin:latest
+
+  nginx:
+    image: library/nginx:latest
+    ports:
+      - "9443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - eclipse-temurin
